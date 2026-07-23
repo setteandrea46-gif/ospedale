@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -25,7 +25,6 @@ function App() {
   const [user, setUser] = useState(() => getStoredSession().user);
   const [checkingSession, setCheckingSession] = useState(Boolean(getStoredSession().token));
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     const { token } = getStoredSession();
@@ -54,10 +53,6 @@ function App() {
     navigate('/login');
   };
 
-  if (location.pathname === '/login') {
-    return <Login />;
-  }
-
   if (checkingSession) {
     return <div className="grid min-h-screen place-items-center bg-[#f5f7f8] text-medink">Apro la tua cartella clinica...</div>;
   }
@@ -79,7 +74,7 @@ function App() {
             <Route path="/vaccines" element={<ProtectedRoute user={user}><Vaccines /></ProtectedRoute>} />
             <Route path="/3d-body" element={<ProtectedRoute user={user}><ThreeBodyViewer /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute user={user}><Settings /></ProtectedRoute>} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path="/register" element={<Register onRegister={handleLogin} />} />
             <Route path="/public/emergency/:userId" element={<PublicEmergency />} />
             <Route path="*" element={<div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">Pagina non trovata.</div>} />
