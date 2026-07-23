@@ -40,10 +40,7 @@ jobs:
           GITHUB_PAGES: "true"
 
       - name: Add SPA fallback
-        run: |
-          cp frontend/dist/index.html frontend/dist/404.html
-          mkdir -p frontend/dist/login
-          cp frontend/dist/index.html frontend/dist/login/index.html
+        run: cp frontend/dist/index.html frontend/dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
