@@ -26,21 +26,21 @@ function Medications() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl bg-white p-6 shadow-sm">
+      <section className="rounded-xl bg-white p-4 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Terapie</p>
-            <h1 className="text-3xl font-bold text-medink">Farmaci e promemoria</h1>
+            <h1 className="text-2xl font-bold text-medink sm:text-3xl">Farmaci e promemoria</h1>
             <p className="mt-2 text-slate-600">Salva farmaco, dosaggio, orario e motivo della terapia.</p>
           </div>
-          <button onClick={() => setShowForm((value) => !value)} className="rounded-lg bg-medink px-5 py-3 text-sm font-bold text-white">
+          <button onClick={() => setShowForm((value) => !value)} className="w-full rounded-lg bg-medink px-5 py-3 text-sm font-bold text-white sm:w-auto">
             Nuovo farmaco
           </button>
         </div>
       </section>
 
       {showForm && (
-        <form onSubmit={save} className="grid gap-4 rounded-xl bg-white p-6 shadow-sm md:grid-cols-2">
+        <form onSubmit={save} className="grid gap-4 rounded-xl bg-white p-4 shadow-sm sm:p-6 md:grid-cols-2">
           {[
             ['name', 'Nome farmaco'],
             ['dosage', 'Dosaggio es. 500 mg'],
@@ -58,7 +58,7 @@ function Medications() {
       )}
 
       <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
-        <section className="rounded-xl bg-white p-6 shadow-sm">
+        <section className="rounded-xl bg-white p-4 shadow-sm sm:p-6">
           <h2 className="text-xl font-bold text-medink">Terapie attive</h2>
           <div className="mt-4 space-y-3">
             {(medications.length ? medications : [{ name: 'Nessun farmaco inserito', dosage: 'Usa Nuovo farmaco per iniziare', frequency: '' }]).map((item) => (
@@ -71,7 +71,7 @@ function Medications() {
           </div>
         </section>
 
-        <aside className="rounded-xl bg-medblue p-6 shadow-sm">
+        <aside className="rounded-xl bg-medblue p-4 shadow-sm sm:p-6">
           <h2 className="text-xl font-bold text-medink">Notifiche pillole</h2>
           <p className="mt-3 text-sm text-slate-700">Il browser puo chiederti il permesso per avvisi locali. La pianificazione completa sara il prossimo passo.</p>
           <button onClick={requestNotifications} className="mt-5 rounded-lg bg-medaccent px-4 py-3 text-sm font-bold text-white">Attiva notifiche</button>

@@ -110,15 +110,15 @@ function Profile() {
     }
   };
 
-  if (loading) return <div className="rounded-xl bg-white p-6 shadow-sm">Carico profilo salute...</div>;
+  if (loading) return <div className="rounded-xl bg-white p-4 shadow-sm sm:p-6">Carico profilo salute...</div>;
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl bg-white p-6 shadow-sm">
+      <section className="rounded-xl bg-white p-4 shadow-sm sm:p-6">
         <div className="grid gap-5 lg:grid-cols-[1fr_18rem] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Profilo salute</p>
-            <h1 className="mt-1 text-3xl font-bold text-medink">Dati clinici del paziente</h1>
+            <h1 className="mt-1 text-2xl font-bold text-medink sm:text-3xl">Dati clinici del paziente</h1>
             <p className="mt-2 text-slate-600">Puoi compilarlo quando vuoi. Questi dati alimentano anche la scheda emergenza NFC/QR.</p>
           </div>
           <div className="rounded-lg bg-medblue p-4">
@@ -134,7 +134,7 @@ function Profile() {
         </div>
       </section>
 
-      <form onSubmit={handleSubmit} className="grid gap-6 rounded-xl bg-white p-6 shadow-sm xl:grid-cols-2">
+      <form onSubmit={handleSubmit} className="grid gap-6 rounded-xl bg-white p-4 shadow-sm sm:p-6 xl:grid-cols-2">
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-medink">Anagrafica</h2>
           <div className="grid gap-4 md:grid-cols-2">
@@ -190,7 +190,7 @@ function Profile() {
 
         <div className="flex flex-wrap items-center justify-between gap-3 xl:col-span-2">
           {message && <p className="text-sm font-semibold text-medaccent">{message}</p>}
-          <button type="submit" disabled={saving} className="rounded-lg bg-medink px-6 py-3 font-bold text-white hover:bg-slate-800 disabled:opacity-60">
+          <button type="submit" disabled={saving} className="w-full rounded-lg bg-medink px-6 py-3 font-bold text-white hover:bg-slate-800 disabled:opacity-60 sm:w-auto">
             {saving ? 'Salvataggio...' : 'Salva profilo salute'}
           </button>
         </div>

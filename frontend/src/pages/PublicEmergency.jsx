@@ -26,13 +26,13 @@ function PublicEmergency() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f5f7f8] p-4 md:p-8">
-      <section className="mx-auto max-w-4xl rounded-xl bg-medink p-6 text-white shadow-sm">
+    <main className="min-h-screen bg-[#f5f7f8] p-3 sm:p-4 md:p-8">
+      <section className="mx-auto max-w-4xl rounded-xl bg-medink p-4 text-white shadow-sm sm:p-6">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-100">Scheda pubblica emergenza</p>
-        <h1 className="mt-2 text-3xl font-bold">MedCard NFC</h1>
+        <h1 className="mt-2 text-2xl font-bold sm:text-3xl">MedCard NFC</h1>
         <p className="mt-2 text-slate-200">Dati critici del paziente per medico o soccorritore.</p>
       </section>
-      <section className="mx-auto mt-6 grid max-w-4xl gap-3 rounded-xl bg-white p-5 shadow-sm">
+      <section className="mx-auto mt-4 grid max-w-4xl gap-3 rounded-xl bg-white p-4 shadow-sm sm:mt-6 sm:p-5">
         {rows.map(([label, value]) => (
           <div key={label} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
             <p className="text-sm font-semibold text-slate-500">{label}</p>

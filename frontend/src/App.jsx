@@ -59,9 +59,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#f5f7f8] text-slate-950">
-      <div className="md:flex">
+      <div className="lg:flex">
         <Sidebar user={user} onLogout={handleLogout} />
-        <main className="flex-1 p-4 md:p-6 lg:p-8">
+        <main className="min-w-0 flex-1 p-3 pb-24 sm:p-4 md:p-6 lg:p-8 lg:pb-8">
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<ProtectedRoute user={user}><Dashboard user={user} /></ProtectedRoute>} />

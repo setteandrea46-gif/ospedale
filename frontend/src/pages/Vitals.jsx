@@ -26,19 +26,19 @@ function Vitals() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl bg-white p-6 shadow-sm">
+      <section className="rounded-xl bg-white p-4 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Parametri</p>
-            <h1 className="text-3xl font-bold text-medink">Monitoraggio salute</h1>
+            <h1 className="text-2xl font-bold text-medink sm:text-3xl">Monitoraggio salute</h1>
             <p className="mt-2 text-slate-600">Registra pressione, glicemia, saturazione, peso e temperatura.</p>
           </div>
-          <button onClick={() => setShowForm((value) => !value)} className="rounded-lg bg-medink px-5 py-3 text-sm font-bold text-white">Nuovo parametro</button>
+          <button onClick={() => setShowForm((value) => !value)} className="w-full rounded-lg bg-medink px-5 py-3 text-sm font-bold text-white sm:w-auto">Nuovo parametro</button>
         </div>
       </section>
 
       {showForm && (
-        <form onSubmit={save} className="grid gap-4 rounded-xl bg-white p-6 shadow-sm md:grid-cols-3">
+        <form onSubmit={save} className="grid gap-4 rounded-xl bg-white p-4 shadow-sm sm:p-6 md:grid-cols-3">
           <select value={form.type} onChange={(e) => setForm((c) => ({ ...c, type: e.target.value }))} className="rounded-lg border-slate-200 bg-slate-50 px-4 py-3">
             <option value="pressione">Pressione</option>
             <option value="glicemia">Glicemia</option>
@@ -55,7 +55,7 @@ function Vitals() {
         </form>
       )}
 
-      <section className="rounded-xl bg-white p-6 shadow-sm">
+      <section className="rounded-xl bg-white p-4 shadow-sm sm:p-6">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
             ['Pressione', latest.systolic ? `${latest.systolic}/${latest.diastolic || '-'}` : '-'],
@@ -71,7 +71,7 @@ function Vitals() {
         </div>
       </section>
 
-      <section className="rounded-xl bg-medblue p-6 shadow-sm">
+      <section className="rounded-xl bg-medblue p-4 shadow-sm sm:p-6">
         <h2 className="text-xl font-bold text-medink">Grafico rapido</h2>
         <div className="mt-6 flex h-64 items-end gap-2 rounded-lg bg-white p-4">
           {(vitals.length ? vitals.slice(0, 12).reverse() : [20, 45, 35, 65, 55]).map((item, index) => {

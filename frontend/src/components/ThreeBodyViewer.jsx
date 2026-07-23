@@ -79,11 +79,11 @@ function ThreeBodyViewer() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl bg-medink p-6 text-white shadow-sm md:p-8">
+      <section className="rounded-xl bg-medink p-4 text-white shadow-sm sm:p-6 md:p-8">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-100">Atlante anatomico</p>
         <div className="mt-3 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <h1 className="text-3xl font-bold md:text-4xl">Corpo umano 3D professionale</h1>
+            <h1 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">Corpo umano 3D professionale</h1>
             <p className="mt-3 max-w-2xl text-slate-200">
               Passa sulle zone evidenziate o cliccale per leggere muscoli, nervi e organi principali.
             </p>
@@ -92,7 +92,7 @@ function ThreeBodyViewer() {
             href="https://sketchfab.com/3d-models/myology-31b40fd809b14665b93773936d67c52c"
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg bg-white px-4 py-3 text-sm font-bold text-medink transition hover:bg-teal-50"
+            className="w-full rounded-lg bg-white px-4 py-3 text-center text-sm font-bold text-medink transition hover:bg-teal-50 sm:w-auto"
           >
             Fonte modello
           </a>
@@ -101,13 +101,13 @@ function ThreeBodyViewer() {
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_22rem]">
         <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-wrap gap-2 border-b border-slate-200 bg-slate-50 p-4">
+          <div className="mobile-scrollbar-hidden flex gap-2 overflow-x-auto border-b border-slate-200 bg-slate-50 p-3 sm:flex-wrap sm:p-4">
             {layers.map((layer) => (
               <button
                 key={layer}
                 type="button"
                 onClick={() => setActiveLayer(layer)}
-                className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
+                className={`shrink-0 rounded-lg px-4 py-2 text-sm font-bold transition ${
                   activeLayer === layer ? 'bg-medaccent text-white shadow-sm' : 'bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-teal-50'
                 }`}
               >
@@ -116,7 +116,7 @@ function ThreeBodyViewer() {
             ))}
           </div>
 
-          <div className="relative h-[680px] bg-[#f5f1e8] md:h-[760px]">
+          <div className="relative h-[520px] bg-[#f5f1e8] sm:h-[640px] md:h-[760px]">
             <iframe
               title="Modello 3D anatomia muscolare"
               src={SKETCHFAB_MODEL}
@@ -137,7 +137,7 @@ function ThreeBodyViewer() {
                     onFocus={() => setHoveredRegion(region)}
                     onBlur={() => setHoveredRegion(null)}
                     onClick={() => setSelectedRegion(region)}
-                    className={`pointer-events-auto absolute grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 text-xs font-black shadow-lg transition ${
+                    className={`pointer-events-auto absolute grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 text-xs font-black shadow-lg transition sm:h-8 sm:w-8 ${
                       isActive
                         ? 'scale-110 border-white bg-medaccent text-white ring-4 ring-teal-200'
                         : 'border-white bg-medink/90 text-white hover:scale-110 hover:bg-medaccent'
@@ -153,7 +153,7 @@ function ThreeBodyViewer() {
           </div>
         </section>
 
-        <aside className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <aside className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">{activeLayer}</p>
           <h2 className="mt-1 text-2xl font-bold text-medink">{visibleRegion.name}</h2>
           <p className="mt-3 text-sm leading-6 text-slate-600">{visibleRegion.summary}</p>

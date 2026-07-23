@@ -57,16 +57,16 @@ function Sidebar({ user, onLogout }) {
   };
 
   return (
-    <aside className="w-full border-b border-slate-200 bg-white/90 p-4 shadow-sm backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-r md:border-b-0">
-      <div className="mb-7 flex items-center gap-3">
-        <div className="grid h-11 w-11 place-items-center rounded-lg bg-medaccent text-lg font-black text-white shadow-sm">M</div>
+    <aside className="w-full border-b border-slate-200 bg-white/95 p-3 shadow-sm backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:border-r lg:border-b-0 lg:p-4">
+      <div className="mb-3 flex items-center gap-3 lg:mb-7">
+        <div className="grid h-10 w-10 place-items-center rounded-lg bg-medaccent text-base font-black text-white shadow-sm lg:h-11 lg:w-11 lg:text-lg">M</div>
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">MedCard</div>
-          <div className="text-xl font-bold text-medink">Salute personale</div>
+          <div className="text-lg font-bold text-medink lg:text-xl">Salute personale</div>
         </div>
       </div>
 
-      <div className="mb-5 rounded-lg border border-slate-200 bg-slate-50 p-3">
+      <div className="mb-3 rounded-lg border border-slate-200 bg-slate-50 p-3 lg:mb-5">
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -104,13 +104,13 @@ function Sidebar({ user, onLogout }) {
         )}
       </div>
 
-      <div className="space-y-1.5">
+      <div className="mobile-scrollbar-hidden -mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:block lg:space-y-1.5 lg:overflow-visible lg:px-0 lg:pb-0">
         {links.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition ${
+              `flex shrink-0 items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold transition lg:gap-3 ${
                 isActive ? 'bg-medink text-white shadow-sm' : 'text-slate-700 hover:bg-slate-100 hover:text-medink'
               }`
             }
@@ -121,7 +121,7 @@ function Sidebar({ user, onLogout }) {
         ))}
       </div>
 
-      <div className="mt-8 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+      <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600 lg:mt-8 lg:p-4">
         <div className="mb-3 font-medium text-slate-800">{user ? user.email : 'Accesso ospite'}</div>
         {user ? (
           <button onClick={onLogout} className="rounded-lg bg-medink px-4 py-2 text-white transition hover:bg-slate-800">

@@ -39,15 +39,15 @@ function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl bg-medink p-6 text-white shadow-sm md:p-8">
+      <section className="rounded-xl bg-medink p-4 text-white shadow-sm sm:p-6 md:p-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_20rem] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-100">Home paziente</p>
-            <h1 className="mt-2 text-4xl font-bold leading-tight">Oggi nella tua cartella clinica</h1>
+            <h1 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">Oggi nella tua cartella clinica</h1>
             <p className="mt-3 max-w-2xl text-slate-200">Priorita, terapie, visite e dati mancanti in una schermata chiara.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/profile" className="rounded-lg bg-white px-5 py-3 text-sm font-bold text-medink hover:bg-teal-50">Completa profilo</Link>
-              <Link to="/emergency" className="rounded-lg border border-white/30 px-5 py-3 text-sm font-bold text-white hover:bg-white/10">Scheda emergenza</Link>
+              <Link to="/profile" className="w-full rounded-lg bg-white px-5 py-3 text-center text-sm font-bold text-medink hover:bg-teal-50 sm:w-auto">Completa profilo</Link>
+              <Link to="/emergency" className="w-full rounded-lg border border-white/30 px-5 py-3 text-center text-sm font-bold text-white hover:bg-white/10 sm:w-auto">Scheda emergenza</Link>
             </div>
           </div>
           <div className="rounded-xl bg-white/10 p-5 ring-1 ring-white/15">
@@ -75,7 +75,7 @@ function Dashboard() {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Alert</p>
           <h2 className="mt-1 text-2xl font-bold text-medink">Cose da sistemare</h2>
           <div className="mt-5 space-y-3">
@@ -85,7 +85,7 @@ function Dashboard() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Terapie di oggi</p>
           <h2 className="mt-1 text-2xl font-bold text-medink">Farmaci e orari</h2>
           <div className="mt-5 space-y-3">
@@ -102,13 +102,13 @@ function Dashboard() {
         </section>
       </div>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Prossime visite</p>
             <h2 className="mt-1 text-2xl font-bold text-medink">Agenda paziente</h2>
           </div>
-          <Link to="/calendar" className="rounded-lg bg-medink px-4 py-2 text-sm font-bold text-white">Nuova visita</Link>
+          <Link to="/calendar" className="w-full rounded-lg bg-medink px-4 py-2 text-center text-sm font-bold text-white sm:w-auto">Nuova visita</Link>
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           {(upcoming.length ? upcoming : [{ title: 'Nessuna visita programmata', facility: 'Aggiungi un appuntamento', date: '' }]).map((item) => (

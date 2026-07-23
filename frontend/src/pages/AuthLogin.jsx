@@ -30,8 +30,8 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="mx-auto max-w-xl rounded-xl bg-white p-8 shadow-sm">
-      <h1 className="text-3xl font-bold text-medink">Accedi a MedCard</h1>
+    <div className="mx-auto max-w-xl rounded-xl bg-white p-5 shadow-sm sm:p-8">
+      <h1 className="text-2xl font-bold text-medink sm:text-3xl">Accedi a MedCard</h1>
       <p className="mt-2 text-slate-600">Entra nella tua cartella clinica. Rimarrai collegato su questo dispositivo.</p>
       {error && <div className="mt-5 rounded-lg bg-red-50 p-3 text-sm font-semibold text-red-700">{error}</div>}
       <form onSubmit={handleSubmit} className="mt-8 space-y-5">
